@@ -1,0 +1,569 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Icon Mirrors</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Jost:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f4ede2; --card:#fbf7f0; --sand:#eadfce; --line:#dccfb9;
+  --ink:#2b241b; --text:#4a4034; --mute:#756a5b;
+  --gold:#7d5b16; --gold2:#c9a45a; --dark:#211b14; --cream:#f6efe3;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Jost','Helvetica Neue',Arial,sans-serif;
+  --gl:max(20px,env(safe-area-inset-left,0px)); --gr:max(20px,env(safe-area-inset-right,0px));
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+h1,h2,h3,h4,p,figure{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.serif{font-family:var(--serif);font-weight:700;color:var(--ink);line-height:1.04;letter-spacing:-.005em}
+.serif em{font-style:italic;font-weight:700;color:var(--gold)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+section{padding:96px 0}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(40px,5.4vw,68px);margin:10px 0 14px}
+.sec-head p{font-size:19px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 26px;border-radius:999px;font-weight:500;font-size:16px;text-decoration:none;transition:transform .25s,background .25s,color .25s,border-color .25s;border:1.5px solid var(--ink);white-space:nowrap}
+@media(hover:hover){.btn:hover{transform:translateY(-2px)}}
+.btn.solid{background:var(--ink);color:var(--cream)}
+.btn.solid:hover{background:#000}
+.btn.ghost:hover{background:var(--ink);color:var(--cream)}
+.btn.wa{background:#1f8f4e;border-color:#1f8f4e;color:#fff}
+.btn.wa:hover{background:#18763f}
+.btn svg{width:20px;height:20px;fill:currentColor;flex:none}
+.btn.sm{min-height:42px;padding:8px 18px;font-size:15px}
+
+/* nav */
+#nav{position:sticky;top:0;z-index:40;background:rgba(244,237,226,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+#nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:44px;width:auto}
+.brand b{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.06em}
+#nav nav{display:flex;gap:26px}
+#nav nav a{text-decoration:none;font-size:16px;color:var(--text);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+#nav nav a:hover,#nav nav a.on{color:var(--ink);border-color:var(--gold2)}
+@media(max-width:1020px){#nav nav{display:none}}
+@media(max-width:520px){.brand b{display:none}}
+
+/* hero */
+#hero{padding:56px 0 84px}
+#hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+#hero h1{font-size:clamp(46px,6.6vw,92px);margin:16px 0 20px}
+#hero .lead{font-size:20px;max-width:30em}
+#hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.mirror{position:relative;isolation:isolate;border-radius:18px;overflow:hidden;background:var(--sand);aspect-ratio:1350/1808;box-shadow:0 30px 60px -30px rgba(60,40,10,.45)}
+.mirror img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s ease}
+#sensor{position:absolute;z-index:500;left:54.6%;top:59.9%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%}
+#sensor::before,#sensor::after{content:"";position:absolute;inset:18px;border-radius:50%;border:2px solid #fff;animation:ping 2.2s ease-out infinite}
+#sensor::after{animation-delay:1.1s}
+@keyframes ping{0%{transform:scale(.5);opacity:1}100%{transform:scale(2.2);opacity:0}}
+.hint{position:absolute;z-index:500;left:54.6%;top:calc(59.9% + 34px);transform:translateX(-50%);background:rgba(33,27,20,.82);color:#fff;font-size:14px;padding:5px 12px;border-radius:999px;white-space:nowrap;pointer-events:none;transition:opacity .4s}
+.lightbar{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lightbar .now{font-size:16px;color:var(--mute)}
+.lightbar .now b{font-family:var(--serif);font-size:27px;color:var(--ink);font-weight:700;margin-right:8px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{min-height:42px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);font-size:15px;font-weight:500;color:var(--text);background:var(--card);transition:all .25s}
+.seg button:hover{border-color:var(--gold2)}
+.seg button.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+@media(max-width:900px){#hero{padding-top:36px}#hero .grid{grid-template-columns:1fr;gap:36px}}
+
+/* collections */
+#collections{padding:0 0 40px}
+.cols{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.col{display:block;border-radius:14px;overflow:hidden;text-decoration:none;background:var(--card);border:1px solid var(--line)}
+.col .fit{aspect-ratio:2/3}
+.col .fit>img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+@media(hover:hover){.col:hover .fit>img{transform:scale(1.04)}}
+.col>span{display:block;padding:12px 14px 14px;color:var(--ink);font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.1}
+.col small{display:block;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--mute);margin-top:3px}
+@media(max-width:900px){.cols{grid-template-columns:repeat(2,1fr)}}
+
+/* whole-photo boxes: the photo is never cropped, a soft blur of it fills any gap */
+.fit{position:relative;overflow:hidden;background:var(--sand)}
+.fit>i{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(24px);opacity:.95}
+.fit>img{position:relative;display:block;width:100%;height:100%;object-fit:contain}
+
+/* product cards */
+.sub{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:46px 0 20px}
+.sub h3{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--ink);line-height:1.1}
+.sub span{font-size:16px;color:var(--mute)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:880px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pc{display:block;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .35s,box-shadow .35s;width:100%}
+@media(hover:hover){.pc:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(60,40,10,.4)}.pc:hover .ph>img{transform:scale(1.03)}.gal button:hover img{transform:scale(1.06)}}
+.pc .ph{display:block;aspect-ratio:.68}
+.grid4 .pc .ph{aspect-ratio:.64}
+#glass .pc .ph{aspect-ratio:1350/1808}
+.pc .ph>img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.pc .tx{padding:16px 18px 18px;display:block}
+.pc .tag{display:inline-block;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.pc b{display:block;font-family:var(--serif);font-size:27px;font-weight:700;color:var(--ink);line-height:1.15}
+.pc i{display:block;font-style:normal;font-size:16px;color:var(--mute);margin-top:4px;line-height:1.45}
+@media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid3,.grid2{grid-template-columns:1fr}.grid4{gap:12px}.grid4 .pc b{font-size:21px}.grid4 .pc .tx{padding:12px}}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.fact b{display:block;font-family:var(--serif);font-size:26px;color:var(--ink);font-weight:700;line-height:1.15;margin-bottom:6px}
+.fact p{font-size:17px}
+@media(max-width:800px){.facts{grid-template-columns:1fr}}
+
+/* viewer (pvc / dual) */
+.band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.viewer{display:grid;grid-template-columns:minmax(0,500px) minmax(0,1fr);gap:56px;align-items:center}
+.stack{position:relative;isolation:isolate;border-radius:16px;overflow:hidden;aspect-ratio:.63;background:var(--sand);box-shadow:0 30px 60px -34px rgba(60,40,10,.45)}
+.stack>.fit{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.stack>.fit.on{opacity:1}
+.thumbs{display:flex;justify-content:center;gap:12px;margin-top:12px;height:220px}
+.thumbs img{height:100%;width:auto;max-width:48%;object-fit:contain;border-radius:12px;background:var(--sand);transition:opacity .3s}
+@media(max-width:600px){.thumbs{height:170px}}
+.opts{display:flex;flex-direction:column;gap:10px;margin:24px 0}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:12px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);min-height:60px;transition:border-color .25s,background .25s}
+.opt:hover{border-color:var(--gold2)}
+.opt.on{border-color:var(--ink);background:#fff}
+.opt .dot{width:30px;height:30px;border-radius:50%;flex:none;border:1px solid rgba(0,0,0,.18);box-shadow:inset 0 2px 4px rgba(255,255,255,.5)}
+.opt b{display:block;font-size:18px;font-weight:600;color:var(--ink);line-height:1.2}
+.opt small{display:block;font-size:15px;color:var(--mute)}
+.spec{border-top:1px solid var(--line);margin-top:8px}
+.spec div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}
+.spec div span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding-top:4px}
+.spec div span:last-child{color:var(--ink)}
+@media(max-width:900px){.viewer{grid-template-columns:1fr;gap:28px}}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split .pic{border-radius:16px;overflow:hidden;background:var(--sand);box-shadow:0 30px 60px -34px rgba(60,40,10,.45)}
+.split .pic img{width:100%;height:auto}
+.split h2{font-size:clamp(38px,5vw,64px);margin:10px 0 14px}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:28px}}
+
+/* shapes */
+.shapes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.shape{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 12px 18px;text-align:center;font-size:17px;color:var(--ink);font-weight:500}
+.shape svg{width:64px;height:76px;margin:0 auto 12px;display:block;fill:#fff;stroke:var(--gold);stroke-width:2}
+.sizes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.size{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:9px 18px;font-size:17px;color:var(--ink)}
+.size.c{border-color:var(--gold);color:var(--gold);font-weight:500}
+@media(max-width:700px){.shapes{grid-template-columns:repeat(2,1fr)}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.gal button{border-radius:10px;overflow:hidden;aspect-ratio:1;background:var(--sand)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+@media(max-width:900px){.gal{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.gal{grid-template-columns:repeat(2,1fr)}}
+
+/* catalogue */
+#catalogue .box{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;background:var(--dark);color:#e9dfcf;border-radius:20px;padding:44px;overflow:hidden}
+#catalogue h2{font-size:clamp(34px,4.4vw,56px);color:var(--cream);margin:10px 0 12px}
+#catalogue h2 em{color:var(--gold2)}
+#catalogue .eyebrow{color:var(--gold2)}
+#catalogue .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+#catalogue .btn{border-color:var(--cream);color:var(--cream)}
+#catalogue .btn.solid{background:var(--gold2);border-color:var(--gold2);color:#1d160b}
+#catalogue .btn.solid:hover{background:#dcb96e}
+#catalogue .btn.ghost:hover{background:var(--cream);color:var(--dark)}
+#catalogue .cover{border-radius:10px;overflow:hidden;box-shadow:0 30px 50px -20px rgba(0,0,0,.7);transform:rotate(1.5deg);display:block;width:100%}
+#catalogue .note{font-size:15px;color:#b9ad9a;margin-top:14px}
+@media(max-width:860px){#catalogue .box{grid-template-columns:1fr;padding:28px 22px}}
+
+/* contact */
+#contact{background:var(--dark);color:#e9dfcf;padding:96px 0 0;margin-top:40px}
+#contact h2{font-size:clamp(44px,7vw,96px);color:var(--cream)}
+#contact h2 em{color:var(--gold2)}
+#contact .eyebrow{color:var(--gold2)}
+#contact .lead{font-size:20px;max-width:32em;margin:16px 0 28px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.person{border:1px solid rgba(201,164,90,.35);border-radius:14px;padding:20px 22px}
+.person small{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);font-weight:500}
+.person b{display:block;font-family:var(--serif);font-size:28px;font-weight:700;color:var(--cream);margin-top:2px}
+.person span{font-size:20px;color:#fff;user-select:all}
+@media(max-width:760px){.people{grid-template-columns:1fr}}
+footer{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:56px;padding:30px 0 calc(34px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(201,164,90,.3);font-size:16px;color:#cfc3b0}
+footer .fb{display:flex;gap:14px;align-items:center}
+footer .fb img{height:64px;width:auto}
+footer b{color:var(--cream);font-family:var(--serif);font-size:22px;font-weight:700;display:block}
+footer .sel{user-select:all;color:#fff}
+
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:80;background:rgba(24,18,11,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(60px + env(safe-area-inset-top,0px)) 12px calc(70px + env(safe-area-inset-bottom,0px))}
+#lb img{max-width:min(1200px,100%);max-height:100%;object-fit:contain;border-radius:8px;background:#fff}
+#lb .x,#lb .pv,#lb .nx{position:absolute;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center}
+#lb .x:hover,#lb .pv:hover,#lb .nx:hover{background:rgba(255,255,255,.28)}
+#lb .x{top:calc(10px + env(safe-area-inset-top,0px));right:12px}
+#lb .pv{left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+#lb .nx{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+#lb .capn{position:absolute;left:70px;right:70px;bottom:calc(22px + env(safe-area-inset-bottom,0px));text-align:center;color:#fff;font-size:16px;line-height:1.35}
+@media(max-width:600px){#lb .capn{font-size:14px}}
+@media(min-width:900px){#lb .pv,#lb .nx{bottom:50%;margin-bottom:-24px}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}#sensor::before,#sensor::after{animation:none}}
+</style>
+</head><body>
+<header id="nav">
+  <div class="wrap">
+    <a class="brand" href="#hero"><img src="assets/logo-dark.png" alt="Icon Mirrors logo"><b>ICON MIRRORS</b></a>
+    <nav>
+      <a href="#led">LED Mirrors</a><a href="#pvc">PVC Frame</a><a href="#standing">Standing</a><a href="#dual">Dual Tone</a><a href="#glass">Bevelled &amp; Etched</a><a href="#catalogue">Catalogue</a>
+    </nav>
+    <a class="btn wa sm" data-wa target="_blank" rel="noopener" href="https://wa.me/919641132035"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm4.500 12.100c-.200-.100-1.500-.700-1.700-.800-.200-.100-.400-.100-.600.100l-.800 1c-.100.200-.300.200-.500.100a6.700 6.700 0 0 1-3.300-2.900c-.300-.400.300-.400.800-1.400.100-.200 0-.300 0-.500l-.800-1.800c-.200-.500-.400-.400-.600-.400h-.500c-.200 0-.500.100-.700.300-.200.300-.900.900-.900 2.200s.900 2.500 1.100 2.700c.100.200 1.900 2.900 4.600 4 1.700.700 2.300.700 3.100.600.500-.100 1.500-.600 1.700-1.200.200-.600.200-1.100.200-1.200-.100-.100-.300-.200-.500-.300z"/></svg>Enquire</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Icon Mirrors · Siliguri</span>
+      <h1 class="serif">More than a mirror, <em>a brighter home.</em></h1>
+      <p class="lead">We make decorative mirrors for homes, salons, hotels and offices. LED mirrors are our speciality, in standard sizes or made to your shape and design.</p>
+      <div class="acts">
+        <a class="btn solid" href="#collections">See our mirrors</a>
+        <button class="btn ghost" data-cat>View catalogue</button>
+      </div>
+    </div>
+    <div>
+      <div class="mirror">
+        <img src="assets/led-off.jpg" alt="LED mirror switched off, with the touch sensor glowing blue">
+        <img data-s="1" src="assets/led-3000.jpg" alt="LED mirror in warm light" style="opacity:0">
+        <img data-s="2" src="assets/led-6000.jpg" alt="LED mirror in white light" style="opacity:0">
+        <img data-s="3" src="assets/led-4000.jpg" alt="LED mirror in natural white light" style="opacity:0">
+        <button id="sensor" aria-label="Touch sensor. Tap to change the light"></button>
+        <span class="hint" id="hint">Tap the sensor</span>
+      </div>
+      <div class="lightbar">
+        <div class="now"><b id="rk">Off</b><span id="rn">Sensor glows blue</span></div>
+        <div class="seg" role="group" aria-label="Light">
+          <button data-set="0" class="on">Off</button><button data-set="1">Warm</button><button data-set="2">White</button><button data-set="3">Natural</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section id="collections">
+  <div class="wrap">
+    <div class="cols">
+      <a class="col rv" href="#led"><span class="fit"><img src="assets/led-triple-rect.jpg" alt=""></span><span>LED Mirrors<small>With touch sensor</small></span></a>
+      <a class="col rv" href="#pvc"><span class="fit"><img loading="lazy" src="assets/pvc-gold.jpg" alt=""></span><span>PVC Frame<small>4 finishes</small></span></a>
+      <a class="col rv" href="#standing"><span class="fit"><img loading="lazy" src="assets/standing.jpg" alt=""></span><span>Standing<small>Full length</small></span></a>
+      <a class="col rv" href="#dual"><span class="fit"><img loading="lazy" src="assets/dual-blue-framed.jpg" alt=""></span><span>Dual Tone<small>Black · Blue · Brown</small></span></a>
+      <a class="col rv" href="#glass"><span class="fit"><img loading="lazy" src="assets/bevel.jpg" alt=""></span><span>Bevelled &amp; Etched<small>Worked glass</small></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- LED -->
+<section id="led" data-topic="LED mirrors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">01 · LED Mirrors</span>
+      <h2 class="serif">Light that follows <em>the shape of the mirror.</em></h2>
+      <p>Every LED mirror has a touch sensor and three colours of light. Choose a standard design, or ask us for your own shape and pattern.</p>
+    </div>
+    <div class="facts">
+      <div class="fact rv"><b>One touch sensor</b><p>When the light is off, the sensor glows blue. Tap it once to switch the mirror on.</p></div>
+      <div class="fact rv"><b>Three lights</b><p>Each tap changes the light: warm (3000K), white (6000K), natural white (4000K), then off.</p></div>
+      <div class="fact rv"><b>Parallel to the edge</b><p>The light band follows the mirror's outline. On a 24 × 18 in mirror: 1 in clear glass, then 1 in of light.</p></div>
+    </div>
+
+    <div class="sub rv"><h3>Standard designs</h3><span>Ready in all standard shapes and sizes</span></div>
+    <div class="grid2">
+      <button class="pc rv" data-lb="led-3000,led-6000,led-4000,led-off" data-cap="Single Line LED mirror"><span class="ph fit"><img loading="lazy" src="assets/led-3000.jpg" alt="Single line LED mirror"></span><span class="tx"><span class="tag">Standard</span><b>Single Line</b><i>One band of light around the mirror.</i></span></button>
+      <button class="pc rv" data-lb="led-double,led-double-side,led-double-detail" data-cap="Double Line LED mirror"><span class="ph fit"><img loading="lazy" src="assets/led-double.jpg" alt="Double line LED mirror"></span><span class="tx"><span class="tag">Standard</span><b>Double Line</b><i>Two parallel bands for a brighter look.</i></span></button>
+    </div>
+
+    <div class="sub rv"><h3>LED with PVC frame</h3><span>Any LED mirror can have a slim frame</span></div>
+    <div class="grid2">
+      <button class="pc rv" data-lb="led-round-black,led-round-black-side,led-round-black-detail" data-cap="Round LED mirror with black PVC frame"><span class="ph fit"><img loading="lazy" src="assets/led-round-black.jpg" alt="Round LED mirror with a black frame"></span><span class="tx"><span class="tag">Framed</span><b>Black frame</b><i>Round LED mirror with a black PVC frame.</i></span></button>
+      <button class="pc rv" data-lb="led-framed-gold" data-cap="LED mirror with gold PVC frame"><span class="ph fit"><img loading="lazy" src="assets/led-framed-gold.jpg" alt="LED mirror with a gold frame"></span><span class="tx"><span class="tag">Framed</span><b>Gold frame</b><i>Rounded rectangle LED mirror with a gold PVC frame.</i></span></button>
+    </div>
+
+    <div class="sub rv"><h3>Custom shapes and designs</h3><span>Made to order, in any size</span></div>
+    <div class="grid4">
+      <button class="pc rv" data-lb="led-triple-rect,led-triple-rect-side,led-triple-rect-detail" data-cap="Custom LED design: multi line"><span class="ph fit"><img loading="lazy" src="assets/led-triple-rect.jpg" alt="Multi line LED mirror"></span><span class="tx"><span class="tag">Custom</span><b>Multi Line</b></span></button>
+      <button class="pc rv" data-lb="led-triple-round,led-triple-round-side,led-triple-round-detail" data-cap="Custom LED design: rings"><span class="ph fit"><img loading="lazy" src="assets/led-triple-round.jpg" alt="Round LED mirror with rings of light"></span><span class="tx"><span class="tag">Custom</span><b>Rings</b></span></button>
+      <button class="pc rv" data-lb="led-swoosh,led-swoosh-side,led-swoosh-detail" data-cap="Custom LED design: swoosh"><span class="ph fit"><img loading="lazy" src="assets/led-swoosh.jpg" alt="Round LED mirror with a swoosh design"></span><span class="tx"><span class="tag">Custom</span><b>Swoosh</b></span></button>
+      <button class="pc rv" data-lb="led-organic,led-arch" data-cap="Custom shaped LED mirror"><span class="ph fit"><img loading="lazy" src="assets/led-organic.jpg" alt="Organic shaped LED mirror"></span><span class="tx"><span class="tag">Custom</span><b>Any Shape</b></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- PVC -->
+<section id="pvc" class="band" data-topic="PVC frame mirrors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">02 · PVC Frame Mirrors</span>
+      <h2 class="serif">A slim frame, <em>four finishes.</em></h2>
+      <p>A neat 10 mm frame that wraps the edge of the mirror. Pick a finish to see it.</p>
+    </div>
+    <div class="viewer">
+      <div class="rv">
+        <div class="stack" id="pvcMain"></div>
+        <div class="thumbs"><img id="pvcSide" alt=""><img id="pvcDet" alt=""></div>
+      </div>
+      <div class="rv">
+        <div class="opts" id="pvcOpts" role="group" aria-label="Frame finish">
+          <button class="opt on" data-k="gold"><span class="dot" style="background:linear-gradient(135deg,#e8cd7a,#b38a2e)"></span><span><b>Gold</b><small>Warm and classic</small></span></button>
+          <button class="opt" data-k="rose"><span class="dot" style="background:linear-gradient(135deg,#eab49a,#b9785c)"></span><span><b>Rose Gold</b><small>Soft copper tone</small></span></button>
+          <button class="opt" data-k="black"><span class="dot" style="background:linear-gradient(135deg,#4a4640,#141210)"></span><span><b>Black</b><small>Bold and modern</small></span></button>
+          <button class="opt" data-k="silver"><span class="dot" style="background:linear-gradient(135deg,#f1f2f4,#a9adb4)"></span><span><b>Silver</b><small>Clean and bright</small></span></button>
+        </div>
+        <div class="spec">
+          <div><span>Frame</span><span>10 mm PVC</span></div>
+          <div><span>Shapes</span><span>Rounded rectangle, oval, circle, octagon</span></div>
+          <div><span>Sizes</span><span>16 × 12, 18 × 18, 20 × 16, 24 × 18, 24 × 24 in</span></div>
+          <div><span>Also</span><span>Available with LED light</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDING -->
+<section id="standing" data-topic="PVC standing mirrors">
+  <div class="wrap split">
+    <div class="pic rv"><img loading="lazy" src="assets/standing.jpg" alt="Full length arched standing mirror with a gold frame in a bedroom"></div>
+    <div class="rv">
+      <span class="eyebrow">03 · Standing Mirrors</span>
+      <h2 class="serif">Head to toe, <em>at a glance.</em></h2>
+      <p>Full-length mirrors on their own stand, in the same slim PVC frame. For bedrooms, dressing rooms and boutiques.</p>
+      <div class="spec" style="margin-top:22px">
+        <div><span>Sizes</span><span>4 × 2 ft, 5 × 2 ft, 5 × 2.5 ft</span></div>
+        <div><span>Shapes</span><span>Rounded rectangle, half round, capsule</span></div>
+        <div><span>Finishes</span><span>Rose Gold, Gold, Black, Silver</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DUAL -->
+<section id="dual" class="band" data-topic="Dual tone mirrors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">04 · Dual Tone Mirrors</span>
+      <h2 class="serif">A clear mirror in <em>a border of colour.</em></h2>
+      <p>Three colours. Each one comes frameless, or with a PVC frame around the outside.</p>
+    </div>
+    <div class="viewer">
+      <div class="rv">
+        <div class="stack" id="dualMain"></div>
+      </div>
+      <div class="rv">
+        <div class="opts" id="dualOpts" role="group" aria-label="Dual tone colour">
+          <button class="opt on" data-k="black"><span class="dot" style="background:#17140f"></span><span><b>Black</b><small>Frameless, or with a silver PVC frame</small></span></button>
+          <button class="opt" data-k="blue"><span class="dot" style="background:#2f62a0"></span><span><b>Blue</b><small>Frameless, or with a silver PVC frame</small></span></button>
+          <button class="opt" data-k="brown"><span class="dot" style="background:#b06f66"></span><span><b>Brown</b><small>Frameless, or with a rose gold PVC frame</small></span></button>
+        </div>
+        <div class="seg" id="dualFrame" role="group" aria-label="Frame option" style="margin-bottom:18px">
+          <button data-f="framed" class="on">With PVC frame</button><button data-f="plain">Frameless</button>
+        </div>
+        <p id="dualNote" style="font-size:16px;color:var(--mute);min-height:1.6em"></p>
+        <div class="spec">
+          <div><span>Shapes</span><span>Rounded rectangle, oval, circle, octagon</span></div>
+          <div><span>Sizes</span><span>All standard sizes, or custom</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLASS -->
+<section id="glass" data-topic="Bevelled and etched mirrors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">05 · Bevelled &amp; Etched</span>
+      <h2 class="serif">Glass, <em>worked by hand.</em></h2>
+      <p>No frame and no light. Just a finely finished edge, or a pattern worked into the surface.</p>
+    </div>
+    <div class="grid2">
+      <button class="pc rv" data-lb="bevel" data-cap="Bevelled mirror"><span class="ph fit"><img loading="lazy" src="assets/bevel.jpg" alt="Frameless bevelled mirror"></span><span class="tx"><b>Bevelled</b><i>A polished, angled edge on every side that catches the light.</i></span></button>
+      <button class="pc rv" data-lb="etched" data-cap="Etched mirror"><span class="ph fit"><img loading="lazy" src="assets/etched.jpg" alt="Mirror with an etched floral pattern"></span><span class="tx"><b>Etched</b><i>Frosted patterns on the glass. Choose a design or bring your own.</i></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- SHAPES -->
+<section id="shapes" class="band" data-topic="a custom shape or size">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Shapes &amp; Sizes</span>
+      <h2 class="serif">Four shapes. Five sizes. <em>Or your own.</em></h2>
+    </div>
+    <div class="shapes">
+      <div class="shape rv"><svg viewBox="0 0 64 76"><rect x="8" y="4" width="48" height="68" rx="13"/></svg>Rounded rectangle</div>
+      <div class="shape rv"><svg viewBox="0 0 64 76"><ellipse cx="32" cy="38" rx="24" ry="34"/></svg>Oval</div>
+      <div class="shape rv"><svg viewBox="0 0 64 76"><circle cx="32" cy="38" r="28"/></svg>Circle</div>
+      <div class="shape rv"><svg viewBox="0 0 64 76"><path d="M20 5h24l13 15v36L44 71H20L7 56V20z"/></svg>Octagon <span style="color:var(--mute);font-weight:400">(20 × 16 in)</span></div>
+    </div>
+    <div class="sizes rv"><span class="size">16 × 12 in</span><span class="size">18 × 18 in</span><span class="size">20 × 16 in</span><span class="size">24 × 18 in</span><span class="size">24 × 24 in</span><span class="size c">Custom shapes and sizes on order</span></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" data-topic="your mirrors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Gallery</span>
+      <h2 class="serif">A closer look <em>at our range.</em></h2>
+      <p>Tap any picture to see it larger, with its side view and close-up.</p>
+    </div>
+    <div class="gal rv" id="gal"></div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section id="catalogue" style="padding-top:20px">
+  <div class="wrap">
+    <div class="box rv">
+      <div>
+        <span class="eyebrow">Product catalogue</span>
+        <h2 class="serif">Everything in <em>one booklet.</em></h2>
+        <p>See every collection, shape and size in our product catalogue.</p>
+        <div class="acts">
+          <button class="btn solid" data-cat>View catalogue</button>
+          <a class="btn ghost" id="dl" href="assets/Icon-Mirrors-Catalogue.pdf" download="Icon Mirrors Catalogue.pdf">Download PDF</a>
+        </div>
+        <p class="note" id="dlnote" role="status" hidden></p>
+      </div>
+      <button data-cat aria-label="Open the catalogue"><img class="cover" loading="lazy" src="assets/cat-01.jpg" alt="Icon Mirrors product catalogue cover"></button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Enquire</span>
+    <h2 class="serif" style="margin-top:12px">Let's make <em>your mirror.</em></h2>
+    <p class="lead">Tell us the space, the shape and the size. We will reply on WhatsApp with options and a quote.</p>
+    <a class="btn wa" data-wa target="_blank" rel="noopener" href="https://wa.me/919641132035"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm4.500 12.100c-.200-.100-1.500-.700-1.700-.800-.200-.100-.400-.100-.600.100l-.800 1c-.100.200-.300.200-.500.100a6.700 6.700 0 0 1-3.300-2.900c-.300-.400.300-.400.800-1.400.100-.200 0-.300 0-.500l-.800-1.800c-.200-.500-.400-.400-.600-.400h-.500c-.200 0-.500.100-.700.300-.200.300-.900.900-.900 2.200s.900 2.500 1.100 2.700c.100.200 1.900 2.900 4.600 4 1.700.700 2.300.700 3.100.600.500-.100 1.500-.600 1.700-1.200.200-.600.200-1.100.200-1.200-.100-.100-.300-.200-.500-.300z"/></svg>WhatsApp us</a>
+    <div class="people">
+      <div class="person"><small>Enquiries</small><b>Manav Mittal</b><span>+91 96411 32035</span></div>
+      <div class="person"><small>Sales</small><b>Rajesh Mittal</b><span>+91 98320 64125</span></div>
+      <div class="person"><small>Sales</small><b>Tarun Mittal</b><span>+91 82500 45524</span></div>
+    </div>
+    <footer>
+      <div class="fb"><img src="assets/logo.png" alt="Icon Mirrors logo"><div><b>Icon Mirrors</b>Crafting Reflections</div></div>
+      <div>Iskon Rd., Opp. Manokamna Hospital<br>Siliguri, West Bengal</div>
+      <div><span class="sel">info@iconmirrors.in</span><br>www.iconmirrors.in</div>
+    </footer>
+  </div>
+</section>
+
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Picture viewer">
+  <img id="lbi" alt="">
+  <button class="x" aria-label="Close">×</button><button class="pv" aria-label="Previous">‹</button><button class="nx" aria-label="Next">›</button>
+  <div class="capn" id="lbc"></div>
+</div>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const A=n=>'assets/'+n+'.jpg';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* hero light */
+const NAMES=[['Off','Sensor glows blue'],['3000K','Warm light'],['6000K','White light'],['4000K','Natural white light']];
+const layers=$$('.mirror img[data-s]'), segs=$$('#hero .seg button'); let state=0, touched=false;
+let zTop=1,lightTimer=0;
+function setLight(s){state=s;clearTimeout(lightTimer);
+  if(s===0){layers.forEach(im=>im.style.opacity=0)}
+  else{const t=layers.find(im=>+im.dataset.s===s);t.style.zIndex=++zTop;t.style.opacity=1;
+    lightTimer=setTimeout(()=>layers.forEach(im=>{if(im!==t){im.style.transition='none';im.style.opacity=0;im.offsetWidth;im.style.transition=''}}),850)}$('#rk').textContent=NAMES[s][0];$('#rn').textContent=NAMES[s][1];segs.forEach((b,i)=>b.classList.toggle('on',i===s))}
+$('#sensor').addEventListener('click',()=>{touched=true;$('#hint').style.opacity=0;setLight((state+1)%4)});
+segs.forEach(b=>b.addEventListener('click',()=>{touched=true;$('#hint').style.opacity=0;setLight(+b.dataset.set)}));
+setTimeout(()=>{if(!touched)setLight(1)},1400);
+
+/* option viewers */
+function fill(box,src){let i=box.querySelector(':scope>i');if(!i){i=document.createElement('i');box.prepend(i)}i.style.backgroundImage='url("'+src+'")'}
+function stackSet(el,src,alt){el._want=src;if(el._top&&el._top.dataset.src===src)return;
+  const im=new Image();im.alt=alt||'';im.src=src;
+  const go=()=>{if(el._want!==src)return;const old=[...el.children];const lay=document.createElement('div');lay.className='fit';lay.dataset.src=src;lay.appendChild(im);fill(lay,src);el._top=lay;el.appendChild(lay);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{lay.classList.add('on');old.forEach(o=>{o.classList.remove('on');setTimeout(()=>o.remove(),700)})}))};
+  if(im.complete)go();else{im.onload=go;im.onerror=go}}
+function thumbSet(img,src,alt){img._want=src;if(img.getAttribute('src')===src)return;const pre=new Image();pre.src=src;
+  const go=()=>{if(img._want!==src)return;img.style.opacity=0;setTimeout(()=>{if(img._want!==src)return;img.src=src;img.alt=alt;img.style.opacity=1},img.getAttribute('src')?220:0)};
+  if(pre.complete)go();else{pre.onload=go;pre.onerror=go}}
+document.querySelectorAll('.fit>img').forEach(im=>fill(im.parentElement,im.getAttribute('src')));
+const PVC={gold:['pvc-gold','pvc-gold-side','pvc-gold-detail','Gold'],rose:['pvc-rose','pvc-rose-side','pvc-rose-round-wide','Rose gold'],black:['pvc-black','pvc-black-side','pvc-black-detail','Black'],silver:['pvc-silver','pvc-silver-side','pvc-silver-detail','Silver']};
+function setPvc(k){const p=PVC[k];stackSet($('#pvcMain'),A(p[0]),p[3]+' PVC frame mirror');thumbSet($('#pvcSide'),A(p[1]),p[3]+' frame, side view');thumbSet($('#pvcDet'),A(p[2]),p[3]+' frame, close-up');
+  $$('#pvcOpts .opt').forEach(b=>b.classList.toggle('on',b.dataset.k===k))}
+$$('#pvcOpts .opt').forEach(b=>b.addEventListener('click',()=>setPvc(b.dataset.k)));
+
+const DUAL={black:{framed:['dual-black-framed','Black dual tone with a silver PVC frame'],plain:['dual-black','Black dual tone, frameless']},
+  blue:{framed:['dual-blue-framed','Blue dual tone with a silver PVC frame'],plain:['dual-blue','Blue dual tone, frameless']},
+  brown:{framed:['dual-brown-framed','Brown dual tone with a rose gold PVC frame'],plain:['dual-brown','Brown dual tone, frameless']}};
+let dk='black', df='framed';
+function setDual(){const d=DUAL[dk][df];
+  stackSet($('#dualMain'),A(d[0]),d[1]);$('#dualNote').textContent=d[1]+'.';
+  $$('#dualOpts .opt').forEach(b=>b.classList.toggle('on',b.dataset.k===dk));$$('#dualFrame button').forEach(b=>b.classList.toggle('on',b.dataset.f===df))}
+$$('#dualOpts .opt').forEach(b=>b.addEventListener('click',()=>{dk=b.dataset.k;setDual()}));
+$$('#dualFrame button').forEach(b=>b.addEventListener('click',()=>{df=b.dataset.f;setDual()}));
+setPvc('gold');setDual();
+
+/* gallery */
+const G=[['led-triple-rect','LED mirror, multi line'],['led-double','LED mirror, double line'],['led-triple-round','LED mirror, rings'],['led-swoosh','LED mirror, swoosh design'],['led-round-black','LED mirror with black frame'],['led-organic','LED mirror, custom shape'],
+['pvc-gold','PVC frame, gold'],['pvc-rose','PVC frame, rose gold'],['pvc-rose-round-wide','PVC frame, rose gold'],['pvc-black','PVC frame, black'],['pvc-silver','PVC frame, silver'],['frame-black-square','Black frame mirror'],
+['dual-black','Dual tone, black'],['dual-black-framed','Dual tone, black with silver frame'],['dual-blue-framed','Dual tone, blue with silver frame'],['dual-brown-framed','Dual tone, brown with rose gold frame'],['frame-black-wide','Wide black frame mirror'],['octagon-wood','Octagon frame mirror']];
+const gal=$('#gal');G.forEach((g,i)=>{const b=document.createElement('button');b.innerHTML='<img loading="lazy" alt="'+g[1]+'" src="assets/t-'+g[0]+'.jpg">';b.addEventListener('click',()=>openLb(G.map(x=>['assets/g-'+x[0]+'.jpg',x[1]]),i));gal.appendChild(b)});
+
+/* lightbox */
+const lb=$('#lb'), lbi=$('#lbi'), lbc=$('#lbc'); let set=[], idx=0, lastFocus=null;
+function showLb(){lbi.src=set[idx][0];lbi.alt=set[idx][1];lbc.textContent=set[idx][1]+(set.length>1?'  ·  '+(idx+1)+' / '+set.length:'');const m=set.length>1;$('.pv',lb).hidden=!m;$('.nx',lb).hidden=!m}
+function openLb(s,i){set=s;idx=i||0;lastFocus=document.activeElement;lb.hidden=false;document.body.style.overflow='hidden';showLb();$('.x',lb).focus()}
+function closeLb(){lb.hidden=true;document.body.style.overflow='';lbi.removeAttribute('src');if(lastFocus)lastFocus.focus()}
+const step=d=>{idx=(idx+d+set.length)%set.length;showLb()};
+$('.x',lb).addEventListener('click',closeLb);$('.pv',lb).addEventListener('click',()=>step(-1));$('.nx',lb).addEventListener('click',()=>step(1));
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Tab'){const f=[...lb.querySelectorAll('button')].filter(b=>!b.hidden);const i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus()}if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+let sx=null;lb.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)step(dx<0?1:-1);sx=null});
+$$('[data-lb]').forEach(b=>b.addEventListener('click',()=>{const n=b.dataset.lb.split(',');openLb(n.map(x=>[A(x),b.dataset.cap]),0)}));
+const CAT=[];for(let i=1;i<=10;i++)CAT.push(['assets/cat-'+String(i).padStart(2,'0')+'.jpg','Icon Mirrors catalogue, page '+i]);
+$$('[data-cat]').forEach(b=>b.addEventListener('click',()=>openLb(CAT,0)));
+/* catalogue download: a plain link on the live site; inside the Claude preview, use its download prompt */
+const dl=$('#dl'), note=$('#dlnote');
+dl.addEventListener('click',async e=>{
+  if(!(window.claude&&typeof window.claude.use==='function'))return;
+  e.preventDefault();note.hidden=true;
+  let d=null;try{d=await window.claude.use('downloads')}catch(x){}
+  if(!d){note.textContent='Download is not available in this preview. Use View catalogue, or download it on the live website.';note.hidden=false;return}
+  try{const blob=await (await fetch(dl.getAttribute('href'))).blob();await d.save({filename:'Icon Mirrors Catalogue.pdf',data:blob})}
+  catch(x){if(x&&x.code==='declined')return;note.textContent=x&&x.code==='rate_limited'?'Please wait a moment and try again.':'The download could not start here. Use View catalogue instead.';note.hidden=false}
+});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add('in');io.unobserve(t);
+  setTimeout(()=>{t.classList.remove('rv','in');t.style.transitionDelay=''},900+(parseInt(t.style.transitionDelay)||0))}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+$$('.rv').forEach((e,i)=>{const sib=[...e.parentElement.children].filter(c=>c.classList.contains('rv'));e.style.transitionDelay=(Math.min(sib.indexOf(e),5)*70)+'ms';io.observe(e)});
+
+/* whatsapp topic, nav highlight, parallax */
+const topics=$$('[data-topic]'), navs=$$('#nav nav a'), was=$$('[data-wa]');
+const link=t=>'https://wa.me/919641132035?text='+encodeURIComponent('Hi Icon Mirrors, I am interested in '+t+'. Please share details.');
+let curT='';
+function tick(){const vh=innerHeight;let cur=null;for(const s of topics){if(s.getBoundingClientRect().top<vh*.5)cur=s}
+  const t=cur?cur.dataset.topic:'your mirrors';if(t!==curT){curT=t;was.forEach(a=>a.href=link(t))}
+  let sec=null;for(const a of navs){const s=$(a.getAttribute('href'));if(s&&s.getBoundingClientRect().top<vh*.5)sec=a}
+  navs.forEach(a=>a.classList.toggle('on',a===sec));
+  requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=$(a.getAttribute('href'));if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-66,behavior:reduce?'auto':'smooth'})}));
+})();
+</script>
+</body></html>
