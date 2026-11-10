@@ -1,7 +1,19 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Icon Mirrors</title>
+<meta name="description" content="Icon Mirrors, Siliguri: LED mirrors with touch sensor, PVC frame, standing, dual tone, bevelled and etched mirrors. Standard sizes or custom shapes made to order.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Icon Mirrors">
+<meta property="og:title" content="Icon Mirrors | LED &amp; Decorative Mirrors, Siliguri">
+<meta property="og:description" content="LED mirrors with touch sensor, PVC frame, standing, dual tone, bevelled and etched mirrors. Custom shapes and sizes made to order.">
+<meta property="og:url" content="https://www.iconmirrors.in/">
+<meta property="og:image" content="https://www.iconmirrors.in/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f4ede2">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Jost:wght@400;500;600&display=swap">
 <style>
 :root{
   color-scheme:light;
@@ -42,21 +54,26 @@ section{padding:96px 0}
 
 /* nav */
 #nav{position:sticky;top:0;z-index:40;background:rgba(244,237,226,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
-#nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:68px}
+#nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:80px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{height:44px;width:auto}
-.brand b{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.06em}
+.brand img{height:56px;width:auto;flex:none}
+.wm{display:block;line-height:1.15}
+.wm small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.brand b{display:block;font-family:'Cinzel',Georgia,serif;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:.14em}
 #nav nav{display:flex;gap:26px}
 #nav nav a{text-decoration:none;font-size:16px;color:var(--text);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
 #nav nav a:hover,#nav nav a.on{color:var(--ink);border-color:var(--gold2)}
 @media(max-width:1020px){#nav nav{display:none}}
-@media(max-width:520px){.brand b{display:none}}
+@media(max-width:1180px){#nav nav{gap:18px}#nav nav a{font-size:15px}}
+@media(max-width:520px){.brand img{height:46px}.brand b{font-size:16px;letter-spacing:.1em}.wm small{font-size:8.5px;letter-spacing:.2em}#nav .wrap{height:70px}}
 
 /* hero */
 #hero{padding:56px 0 84px}
 #hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 #hero h1{font-size:clamp(46px,6.6vw,92px);margin:16px 0 20px}
 #hero .lead{font-size:20px;max-width:30em}
+.hero-logo{height:150px;width:auto;margin-bottom:26px}
+@media(max-width:900px){.hero-logo{height:120px;margin:0 auto 22px}#hero .grid>div:first-child{text-align:center}#hero .acts{justify-content:center}#hero .lead{margin:0 auto}}
 #hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .mirror{position:relative;isolation:isolate;border-radius:18px;overflow:hidden;background:var(--sand);aspect-ratio:1350/1808;box-shadow:0 30px 60px -30px rgba(60,40,10,.45)}
 .mirror img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s ease}
@@ -186,11 +203,17 @@ section{padding:96px 0}
 .person{border:1px solid rgba(201,164,90,.35);border-radius:14px;padding:20px 22px}
 .person small{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);font-weight:500}
 .person b{display:block;font-family:var(--serif);font-size:28px;font-weight:700;color:var(--cream);margin-top:2px}
-.person span{font-size:20px;color:#fff;user-select:all}
+.person .tel{display:block;font-size:21px;color:#fff;text-decoration:none;margin-top:2px}
+.person .tel:hover{color:var(--gold2)}
+.person .pwa{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:14px;font-weight:500;color:#7fd6a3;text-decoration:none;padding:6px 12px;border:1px solid rgba(127,214,163,.45);border-radius:999px}
+.person .pwa svg{width:16px;height:16px;fill:currentColor}
+.person .pwa:hover{background:rgba(127,214,163,.12)}
 @media(max-width:760px){.people{grid-template-columns:1fr}}
 footer{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:56px;padding:30px 0 calc(34px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(201,164,90,.3);font-size:16px;color:#cfc3b0}
 footer .fb{display:flex;gap:14px;align-items:center}
-footer .fb img{height:64px;width:auto}
+footer .fb img{height:120px;width:auto}
+footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(201,164,90,.5)}
+footer a:hover{border-color:var(--gold2)}
 footer b{color:var(--cream);font-family:var(--serif);font-size:22px;font-weight:700;display:block}
 footer .sel{user-select:all;color:#fff}
 
@@ -215,7 +238,7 @@ footer .sel{user-select:all;color:#fff}
 </head><body>
 <header id="nav">
   <div class="wrap">
-    <a class="brand" href="#hero"><img src="assets/logo-dark.png" alt="Icon Mirrors logo"><b>ICON MIRRORS</b></a>
+    <a class="brand" href="#hero" aria-label="Icon Mirrors, back to top"><img src="assets/emblem.png" alt=""><span class="wm"><b>ICON MIRRORS</b><small>Crafting Reflections</small></span></a>
     <nav>
       <a href="#led">LED Mirrors</a><a href="#pvc">PVC Frame</a><a href="#standing">Standing</a><a href="#dual">Dual Tone</a><a href="#glass">Bevelled &amp; Etched</a><a href="#catalogue">Catalogue</a>
     </nav>
@@ -227,7 +250,8 @@ footer .sel{user-select:all;color:#fff}
 <section id="hero">
   <div class="wrap grid">
     <div>
-      <span class="eyebrow">Icon Mirrors · Siliguri</span>
+      <img class="hero-logo" src="assets/logo-full.png" alt="Icon Mirrors, Crafting Reflections">
+      <span class="eyebrow">Decorative mirrors · Siliguri</span>
       <h1 class="serif">More than a mirror, <em>a brighter home.</em></h1>
       <p class="lead">We make decorative mirrors for homes, salons, hotels and offices. LED mirrors are our speciality, in standard sizes or made to your shape and design.</p>
       <div class="acts">
@@ -453,14 +477,14 @@ footer .sel{user-select:all;color:#fff}
     <p class="lead">Tell us the space, the shape and the size. We will reply on WhatsApp with options and a quote.</p>
     <a class="btn wa" data-wa target="_blank" rel="noopener" href="https://wa.me/919641132035"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm4.500 12.100c-.200-.100-1.500-.700-1.700-.800-.200-.100-.400-.100-.600.100l-.800 1c-.100.200-.300.200-.500.100a6.700 6.700 0 0 1-3.300-2.900c-.300-.400.300-.400.800-1.400.100-.200 0-.300 0-.500l-.800-1.800c-.200-.500-.400-.400-.600-.400h-.500c-.200 0-.500.100-.700.300-.200.300-.900.900-.900 2.200s.900 2.500 1.100 2.700c.100.200 1.900 2.900 4.600 4 1.700.700 2.300.700 3.100.600.500-.100 1.500-.600 1.700-1.200.200-.600.200-1.100.200-1.200-.100-.100-.300-.200-.500-.300z"/></svg>WhatsApp us</a>
     <div class="people">
-      <div class="person"><small>Enquiries</small><b>Manav Mittal</b><span>+91 96411 32035</span></div>
-      <div class="person"><small>Sales</small><b>Rajesh Mittal</b><span>+91 98320 64125</span></div>
-      <div class="person"><small>Sales</small><b>Tarun Mittal</b><span>+91 82500 45524</span></div>
+      <div class="person"><small>Enquiries</small><b>Manav Mittal</b><a class="tel" href="tel:+919641132035">+91 96411 32035</a><a class="pwa" target="_blank" rel="noopener" href="https://wa.me/919641132035"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a></div>
+      <div class="person"><small>Sales</small><b>Rajesh Mittal</b><a class="tel" href="tel:+919832064125">+91 98320 64125</a><a class="pwa" target="_blank" rel="noopener" href="https://wa.me/919832064125"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a></div>
+      <div class="person"><small>Sales</small><b>Tarun Mittal</b><a class="tel" href="tel:+918250045524">+91 82500 45524</a><a class="pwa" target="_blank" rel="noopener" href="https://wa.me/918250045524"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a></div>
     </div>
     <footer>
-      <div class="fb"><img src="assets/logo.png" alt="Icon Mirrors logo"><div><b>Icon Mirrors</b>Crafting Reflections</div></div>
-      <div>Iskon Rd., Opp. Manokamna Hospital<br>Siliguri, West Bengal</div>
-      <div><span class="sel">info@iconmirrors.in</span><br>www.iconmirrors.in</div>
+      <div class="fb"><img src="assets/logo-gold.png" alt="Icon Mirrors, Crafting Reflections"></div>
+      <div><b>Visit us</b>Iskon Rd., Opp. Manokamna Hospital<br>Siliguri, West Bengal<br><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Iskon+Road+Opposite+Manokamna+Hospital+Siliguri">Get directions</a></div>
+      <div><b>Write to us</b><a href="mailto:info@iconmirrors.in">info@iconmirrors.in</a><br>www.iconmirrors.in</div>
     </footer>
   </div>
 </section>
@@ -472,6 +496,7 @@ footer .sel{user-select:all;color:#fff}
   <div class="capn" id="lbc"></div>
 </div>
 
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Icon Mirrors","description":"Manufacturer of LED, PVC frame, standing, dual tone, bevelled and etched decorative mirrors.","url":"https://www.iconmirrors.in/","logo":"https://www.iconmirrors.in/assets/logo-full.png","image":"https://www.iconmirrors.in/assets/og.jpg","telephone":"+91-96411-32035","email":"info@iconmirrors.in","address":{"@type":"PostalAddress","streetAddress":"Iskon Road, Opposite Manokamna Hospital","addressLocality":"Siliguri","addressRegion":"West Bengal","addressCountry":"IN"}}</script>
 <script>
 (function(){
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
