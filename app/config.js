@@ -1,0 +1,2 @@
+// Public connection details (safe to keep in the app; your data is protected by login + row-level security).
+window.ICON_CONFIG = { SUPABASE_URL: "https://tjcankfxrhrxhifeooib.supabase.co", SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqY2Fua2Z4cmhyeGhpZmVvb2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQzODM4NDcsImV4cCI6MjEwOTk1OTg0N30.sdzy8I7ugMEunT4PIVv7hs3FYMm7LCe2mjkTFiamxa4" };
